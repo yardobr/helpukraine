@@ -3,7 +3,7 @@
     if (isClosed) return;
 
     var node = document.createElement('iframe');
-    node.src = 'https://cdn.jsdelivr.net/gh/yardobr/helpukraine@>=0.0.5/src/templates/footer.html';
+    node.src = 'http://volunteer.terapiya.space/assets/footer.html';
     node.width = '100%';
     node.height = '48px';
     node.style = 'position:fixed; bottom: 0; height: 48px; border: none;z-index: 10000;'
