@@ -1,188 +1,181 @@
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-        <div class="helpua-footer">
-            <div class="helpua-flag">
-                <span class="blue-1"></span>
-                <span class="blue-2"></span>
-                <span class="yellow-1"></span>
-                <span class="yellow-2"></span>
-            </div>
-            <div class="helpua-content-area">
-                <p class="helpua-text">
-                    Help people in <span class="ukraine">Ukraine</span>. <span class="descriptor">Just a cup of coffee for you
-                        might save a life</span>
-                </p>
-                <button class="helpua-btn"
-                    onclick="window.open('https://www.subbly.co/checkout/buy/141313?utm_source=helpua')">Donate $5</button>
-            </div>
-            <span class="close" onclick="localStorage.setItem('helpUA-closed', true)"></span>
-        </div>
-        
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-        
-            .helpua-footer {
-                display: block;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 48px;
-                font-family: "Open Sans", Arial, Verdana, Geneva, Tahoma, sans-serif;
-                overflow: hidden;
-                background: #fff;
-            }
-        
-            .helpua-content-area {
-                position: relative;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100%;
-            }
-        
-            .helpua-text {
-                display: inline-block;
-                margin-right: 12px;
-                font-weight: 800;
-                font-size: 16px;
-            }
-        
-            .helpua-btn {
-                display: inline-block;
-                height: 28px;
-                padding: 5px 16px;
-                font-size: 14px;
-                border: 1px solid #2E2E2E;
-                border-radius: 4px;
-                background-color: rgba(255, 255, 255, 0);
-                box-shadow: none;
-                text-decoration: none;
-                cursor: pointer;
-                text-align: center;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-            }
-        
-            .helpua-btn:hover {
-                font-weight: bold;
-            }
-        
-            .helpua-flag .blue-1 {
-                position: absolute;
-                width: 252px;
-                height: 252px;
-                left: 143px;
-                top: -115px;
-                background: radial-gradient(50% 50% at 50% 50%, rgba(48, 125, 252, 0.25) 0%, rgba(48, 125, 252, 0) 100%);
-            }
-        
-            .helpua-flag .yellow-1 {
-                position: absolute;
-                width: 252px;
-                height: 252px;
-                left: 310px;
-                top: -55px;
-                background: radial-gradient(50% 50% at 50% 50%, rgba(255, 235, 51, 0.24) 0%, rgba(255, 235, 51, 0) 100%);
-            }
-        
-            .helpua-flag .blue-2 {
-                position: absolute;
-                width: 298px;
-                height: 298px;
-                right: 100px;
-                top: -224px;
-                background: radial-gradient(50% 50% at 50% 50%, rgba(48, 125, 252, 0.74) 0%, rgba(48, 125, 252, 0) 100%);
-            }
-        
-            .helpua-flag .yellow-2 {
-                position: absolute;
-                width: 252px;
-                height: 252px;
-                right: 50px;
-                top: 0;
-                background: radial-gradient(50% 50% at 50% 50%, rgba(255, 235, 51, 0.77) 0%, rgba(255, 235, 51, 0) 100%);
-            }
-        
-            .close {
-                position: absolute;
-                right: 28px;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 12px;
-                height: 12px;
-                opacity: 0.5;
-                cursor: pointer;
-            }
-        
-            .close:hover {
-                opacity: 1;
-            }
-        
-            .close:before,
-            .close:after {
-                position: absolute;
-                left: 5px;
-                content: ' ';
-                height: 12px;
-                width: 2px;
-                background-color: #333;
-            }
-        
-            .close:before {
-                transform: rotate(45deg);
-            }
-        
-            .close:after {
-                transform: rotate(-45deg);
-            }
-        
-            @media screen and (max-width: 742px) {
-                .helpua-footer {
-                    height: 92px;
-                    padding: 8px 16px;
-                }
-        
-                .helpua-content-area {
-                    flex-direction: column;
-                    align-items: stretch;
-                    justify-content: space-between;
-                    text-align: center;
-                }
-        
-                .helpua-text {
-                    margin: 0;
-                    margin-right: 20%;
-                    font-weight: normal;
-                    text-align: left;
-                }
-        
-                .ukraine {
-                    font-weight: bold;
-                }
-        
-                .close {
-                    top: 19px;
-                    right: 19px;
-                }
-            }
-        
-            @media screen and (max-width: 350px) {
-                .helpua-text {
-                    text-align: center;
-                    font-weight: bold;
-                    margin: 0 20px;
-                }
-        
-                .descriptor {
-                    display: none;
-                }
-            }
-        </style>
-    </body>
-</html>
+<div class="helpua-footer">
+    <div class="helpua-flag">
+        <span class="blue-1"></span>
+        <span class="blue-2"></span>
+        <span class="yellow-1"></span>
+        <span class="yellow-2"></span>
+    </div>
+    <div class="helpua-content-area">
+        <p class="helpua-text">
+            Help people in <span class="ukraine">Ukraine</span>. <span class="descriptor">Just a cup of coffee for you
+                might save a life</span>
+        </p>
+        <button class="helpua-btn"
+            onclick="window.open('https://www.subbly.co/checkout/buy/141313?utm_source=helpua')">Donate $5</button>
+    </div>
+    <span class="close" onclick="localStorage.setItem('helpUA-closed', true)"></span>
+</div>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    .helpua-footer {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 48px;
+        font-family: "Open Sans", Arial, Verdana, Geneva, Tahoma, sans-serif;
+        overflow: hidden;
+        background: #fff;
+    }
+
+    .helpua-content-area {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .helpua-text {
+        display: inline-block;
+        margin-right: 12px;
+        font-weight: 800;
+        font-size: 16px;
+    }
+
+    .helpua-btn {
+        display: inline-block;
+        height: 28px;
+        padding: 5px 16px;
+        font-size: 14px;
+        border: 1px solid #2E2E2E;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: none;
+        text-decoration: none;
+        cursor: pointer;
+        text-align: center;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    .helpua-btn:hover {
+        font-weight: bold;
+    }
+
+    .helpua-flag .blue-1 {
+        position: absolute;
+        width: 252px;
+        height: 252px;
+        left: 143px;
+        top: -115px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(48, 125, 252, 0.25) 0%, rgba(48, 125, 252, 0) 100%);
+    }
+
+    .helpua-flag .yellow-1 {
+        position: absolute;
+        width: 252px;
+        height: 252px;
+        left: 310px;
+        top: -55px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 235, 51, 0.24) 0%, rgba(255, 235, 51, 0) 100%);
+    }
+
+    .helpua-flag .blue-2 {
+        position: absolute;
+        width: 298px;
+        height: 298px;
+        right: 100px;
+        top: -224px;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(48, 125, 252, 0.74) 0%, rgba(48, 125, 252, 0) 100%);
+    }
+
+    .helpua-flag .yellow-2 {
+        position: absolute;
+        width: 252px;
+        height: 252px;
+        right: 50px;
+        top: 0;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(255, 235, 51, 0.77) 0%, rgba(255, 235, 51, 0) 100%);
+    }
+
+    .close {
+        position: absolute;
+        right: 28px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 12px;
+        opacity: 0.5;
+        cursor: pointer;
+    }
+
+    .close:hover {
+        opacity: 1;
+    }
+
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 5px;
+        content: ' ';
+        height: 12px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .close:before {
+        transform: rotate(45deg);
+    }
+
+    .close:after {
+        transform: rotate(-45deg);
+    }
+
+    @media screen and (max-width: 742px) {
+        .helpua-footer {
+            height: 92px;
+            padding: 8px 16px;
+        }
+
+        .helpua-content-area {
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .helpua-text {
+            margin: 0;
+            margin-right: 20%;
+            font-weight: normal;
+            text-align: left;
+        }
+
+        .ukraine {
+            font-weight: bold;
+        }
+
+        .close {
+            top: 19px;
+            right: 19px;
+        }
+    }
+
+    @media screen and (max-width: 350px) {
+        .helpua-text {
+            text-align: center;
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        .descriptor {
+            display: none;
+        }
+    }
+</style>
