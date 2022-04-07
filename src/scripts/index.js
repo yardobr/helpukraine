@@ -1,4 +1,7 @@
 (function() {
+    var isClosed = localStorage.getItem('helpUA-closed');
+    if (isClosed) return;
+
     var node = document.createElement('iframe');
     node.src = 'https://cdn.jsdelivr.net/gh/yardobr/helpukraine@0.0.1/src/templates/footer.html';
     node.width = '100%';
