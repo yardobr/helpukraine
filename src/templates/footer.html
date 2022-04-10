@@ -13,7 +13,7 @@
         <button class="helpua-btn"
             onclick="window.open('https://www.subbly.co/checkout/buy/141313?utm_source=helpua')">Donate $5</button>
     </div>
-    <span class="close" onclick="localStorage.setItem('helpUA-closed', true)"></span>
+    <span class="close" onclick="localStorage.setItem('helpUA-closed', true); document.querySelector('.helpua-footer').classList.add('hidden')"></span>
 </div>
 
 <style>
@@ -32,6 +32,8 @@
         overflow: hidden;
         background: #fff;
     }
+
+    .helpua-footer.hidden { display: none; }
 
     .helpua-content-area {
         position: relative;
