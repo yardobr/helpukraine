@@ -2,18 +2,37 @@
     var isClosed = localStorage.getItem('helpUA-closed');
     if (isClosed) return;
 
-    var node = document.createElement('iframe');
-    node.id = 'helpua-frame'
-    node.src = 'http://volunteer.terapiya.space/assets/footer.html';
-    node.width = '100%';
-    node.height = '48px';
-    node.style = `position: fixed;
-                  bottom: 0;
-                  height: 48px;
-                  border: none;
-                  z-index: 10000;
-                  @media screen and (max-width: 742px) {
-                      #helpua-frame { height: 92px; }
-                  }`
-    document.body.appendChild(node);
+    var matchesMedia = window.matchMedia('(max-width: 742px)');
+
+    var frame = document.createElement('iframe');
+    frame.id = 'helpua-frame'
+    frame.src = 'http://volunteer.terapiya.space/assets/footer.html';
+    frame.width = '100%';
+    frame.style = `
+        position: fixed;
+        bottom: 0;
+        border: none;
+        z-index: 10000;
+    `;
+
+    var placeholder = document.createElement('div');
+    placeholder.id = 'helpua-placeholder';
+    placeholder.style.height = getHeight(matchesMedia);
+
+    recalculateStyles(frame, placeholder);
+
+    window.onresize = function() { recalculateStyles(frame, placeholder) };
+
+    document.body.appendChild(frame);
+    document.body.appendChild(placeholder);
 })();
+
+function getHeight (matchesMedia) {
+    return matchesMedia.matches ? '92px' : '48px';
+}
+
+function recalculateStyles(frame, placeholder) {
+    matchesMedia = window.matchMedia('(max-width: 742px)');
+    frame.style.height = getHeight(matchesMedia);
+    placeholder.style.height = getHeight(matchesMedia);
+}
