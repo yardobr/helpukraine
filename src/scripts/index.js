@@ -23,7 +23,7 @@ function main() {
 
     var frame = document.createElement('iframe');
     frame.id = 'helpua-frame'
-    frame.src = 'http://volunteer.terapiya.space/assets/footer.html';
+    frame.src = 'https://betster.io/help-ua/footer.html';
     frame.width = '100%';
     frame.style = `
         position: fixed;
