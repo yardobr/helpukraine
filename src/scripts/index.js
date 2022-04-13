@@ -1,21 +1,22 @@
-let stateCheck = setInterval(() => {
+(function () {
+  let stateCheck = setInterval(() => {
     if (document.readyState === 'complete') {
       clearInterval(stateCheck);
       main();
     }
   }, 1000);
 
-function getHeight (matchesMedia) {
+  function getHeight(matchesMedia) {
     return matchesMedia.matches ? '92px' : '48px';
-}
+  }
 
-function recalculateStyles(frame, placeholder) {
+  function recalculateStyles(frame, placeholder) {
     matchesMedia = window.matchMedia('(max-width: 742px)');
     frame.style.height = getHeight(matchesMedia);
     placeholder.style.height = getHeight(matchesMedia);
-}
+  }
 
-function main() {
+  function main() {
     var isClosed = localStorage.getItem('helpUA-closed');
     if (isClosed) return;
 
@@ -38,8 +39,9 @@ function main() {
 
     recalculateStyles(frame, placeholder);
 
-    window.onresize = function() { recalculateStyles(frame, placeholder) };
+    window.onresize = function () { recalculateStyles(frame, placeholder) };
 
     document.body.appendChild(frame);
     document.body.appendChild(placeholder);
-    }
+  }
+})()
