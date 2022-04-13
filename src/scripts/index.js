@@ -1,9 +1,9 @@
-var stateCheck = setInterval(() => {
+let stateCheck = setInterval(() => {
     if (document.readyState === 'complete') {
       clearInterval(stateCheck);
       main();
     }
-  }, 100);
+  }, 1000);
 
 function getHeight (matchesMedia) {
     return matchesMedia.matches ? '92px' : '48px';
