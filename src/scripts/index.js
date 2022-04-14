@@ -16,6 +16,13 @@
     placeholder.style.height = getHeight(matchesMedia);
   }
 
+  function incrementVisits() {
+    fetch('https://api.countapi.xyz/hit/helpukraine/visits')
+      .catch(err => {
+        console.error('Helpukraine: cannot increment counter');
+      });
+  }
+
   function main() {
     var isClosed = localStorage.getItem('helpUA-closed');
     if (isClosed) return;
@@ -43,5 +50,7 @@
 
     document.body.appendChild(frame);
     document.body.appendChild(placeholder);
+
+    incrementVisits();
   }
 })()
