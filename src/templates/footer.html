@@ -13,7 +13,7 @@
         <button class="helpua-btn"
             onclick="window.open('https://www.subbly.co/checkout/buy/141313?currency=USD')">Donate $5</button>
     </div>
-    <span class="close" onclick="localStorage.setItem('helpUA-closed', true); document.querySelector('.helpua-footer').classList.add('hidden')"></span>
+    <span class="close" onclick="window.top.postMessage('helpua-close', '*')"></span>
 </div>
 
 <style>

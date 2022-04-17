@@ -1,4 +1,7 @@
 (function () {
+  var isClosed = localStorage.getItem('helpUA-closed');
+  if (isClosed) return;
+
   let stateCheck = setInterval(() => {
     if (document.readyState === 'complete') {
       clearInterval(stateCheck);
@@ -24,9 +27,6 @@
   }
 
   function main() {
-    var isClosed = localStorage.getItem('helpUA-closed');
-    if (isClosed) return;
-
     var matchesMedia = window.matchMedia('(max-width: 742px)');
 
     var frame = document.createElement('iframe');
@@ -52,5 +52,16 @@
     document.body.appendChild(placeholder);
 
     incrementVisits();
+
+    window.onmessage = function(e) {
+      if (e.data == 'helpua-close') {
+        helpuaClose();
+      }
+    }
+  }
+
+  function helpuaClose() {
+    localStorage.setItem('helpUA-closed', true);
+    document.querySelector('#helpua-frame').remove();
   }
 })()
