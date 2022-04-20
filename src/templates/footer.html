@@ -6,7 +6,7 @@
         <span class="yellow-2"></span>
     </div>
     <div class="helpua-content-area">
-        <p class="helpua-text">
+        <p class="helpua-text" id="helpua-text">
             Help people in <span class="ukraine">Ukraine</span>. <span class="descriptor">Just a cup of coffee for you
                 might save a life</span>
         </p>
@@ -47,7 +47,7 @@
         display: inline-block;
         margin-right: 12px;
         font-weight: 800;
-        font-size: 16px;
+        font-size: 15px;
     }
 
     .helpua-btn {
@@ -182,3 +182,42 @@
         }
     }
 </style>
+
+<script>
+    var texts = [
+        `Help people in <span class="ukraine">Ukraine</span>.
+        <span class="descriptor">Just a cup of coffee for you might save a life</span>`,
+        `While Ukrainians fight for their freedom, you might save a life with just ☕️.`,
+        `Don’t know how to support Ukrainians?
+         <span class="descriptor">Donate through verified funds and volunteers.</span>`,
+        `Don’t stay aside. Support Ukrainians in an uneven battle. A ☕️ might safe a life there.`,
+        `Support Ukrainian armed force. 
+         <span class="descriptor">Save the lives with just a ☕️</span>`,
+        `Support Ukrainians struggling of nightmarish crimes by Russia.
+         <span class="descriptor">Save a life with just ☕️.</span>`,
+        `Ukrainians are still in a nightmarish war.
+         <span class="descriptor">Support lives with just a ☕️.</span>`,
+    ];
+
+    (function() {
+        let stateCheck = setInterval(() => {
+        if (document.readyState === `complete`) {
+            clearInterval(stateCheck);
+            main();
+        }
+        }, 1000);
+    })()
+    
+    function main() {
+        var index = getIndex(Date.now(), texts.length);
+        if (index && index >= 0 && index < texts.length) {
+            document.querySelector('#helpua-text').innerHTML = texts[index];
+        }
+    }
+
+    function getIndex(date, of) {
+        var period = 86400000 * 3;
+        var startingPoint = 1649864205954;
+        return (Math.floor((date - startingPoint) / period) % of) - 1;
+    }
+</script>
