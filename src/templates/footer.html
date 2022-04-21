@@ -5,15 +5,22 @@
         <span class="yellow-1"></span>
         <span class="yellow-2"></span>
     </div>
+    
     <div class="helpua-content-area">
         <p class="helpua-text" id="helpua-text">
-            Help people in <span class="ukraine">Ukraine</span>. <span class="descriptor">Just a cup of coffee for you
-                might save a life</span>
+            <!-- Help people in <span class="ukraine">Ukraine</span>. <span class="descriptor">Just a cup of coffee for you
+                might save a life</span> -->
         </p>
         <button class="helpua-btn"
             onclick="window.open('https://www.subbly.co/checkout/buy/141313?currency=USD')">Donate $5</button>
     </div>
-    <span class="close" onclick="window.top.postMessage('helpua-close', '*')"></span>
+
+    <span class="close" onclick="window.top.postMessage('helpua-close', '*')">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M3.85355 3.14645C3.65829 2.95118 3.34171 2.95118 3.14645 3.14645C2.95118 3.34171 2.95118 3.65829 3.14645 3.85355L8.29289 9L3.14645 14.1464C2.95118 14.3417 2.95118 14.6583 3.14645 14.8536C3.34171 15.0488 3.65829 15.0488 3.85355 14.8536L9 9.70711L14.1464 14.8536C14.3417 15.0488 14.6583 15.0488 14.8536 14.8536C15.0488 14.6583 15.0488 14.3417 14.8536 14.1464L9.70711 9L14.8536 3.85356C15.0488 3.65829 15.0488 3.34171 14.8536 3.14645C14.6583 2.95119 14.3417 2.95119 14.1464 3.14645L9 8.29289L3.85355 3.14645Z" fill="#8B93A7"/>
+        </svg>
+    </span>
+
 </div>
 
 <style>
@@ -108,12 +115,15 @@
 
     .close {
         position: absolute;
-        right: 28px;
+        left: 28px;
         top: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         transform: translateY(-50%);
         width: 30px;
         height: 30px;
-        opacity: 0.5;
+        opacity: 0.7;
         cursor: pointer;
     }
 
@@ -121,26 +131,7 @@
         opacity: 1;
     }
 
-    .close:before,
-    .close:after {
-        position: absolute;
-        left: 14px;
-        top: 9px;
-        content: ' ';
-        height: 12px;
-        width: 2px;
-        background-color: #333;
-    }
-
-    .close:before {
-        transform: rotate(45deg);
-    }
-
-    .close:after {
-        transform: rotate(-45deg);
-    }
-
-    @media screen and (max-width: 742px) {
+    @media screen and (max-width: 874px) {
         .helpua-footer {
             height: 92px;
             padding: 8px 16px;
@@ -151,11 +142,11 @@
             align-items: stretch;
             justify-content: space-between;
             text-align: center;
+            margin-left: 18px;
         }
 
         .helpua-text {
             margin: 0;
-            margin-right: 20%;
             font-weight: normal;
             text-align: left;
         }
@@ -164,9 +155,16 @@
             font-weight: bold;
         }
 
+        .action-container {
+            display: flex;
+            justify-content: stretch;
+        }
+
         .close {
-            top: 19px;
-            right: 19px;
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            transform: none;
         }
     }
 
@@ -187,29 +185,22 @@
     var texts = [
         `Help people in <span class="ukraine">Ukraine</span>.
         <span class="descriptor">Just a cup of coffee for you might save a life</span>`,
-        `While Ukrainians fight for their freedom, you might save a life with just ☕️.`,
+        `While Ukrainians fight for their freedom, you might save a life with just a cup of coffee.`,
         `Don’t know how to support Ukrainians?
          <span class="descriptor">Donate through verified funds and volunteers.</span>`,
-        `Don’t stay aside. Support Ukrainians in an uneven battle. A ☕️ might safe a life there.`,
+        `Don’t stay aside. Support Ukrainians in an uneven battle. A cup of coffee might safe a life there.`,
         `Support Ukrainian armed force. 
-         <span class="descriptor">Save the lives with just a ☕️</span>`,
+         <span class="descriptor">Save the lives with just a cup of coffee</span>`,
         `Support Ukrainians struggling of nightmarish crimes by Russia.
-         <span class="descriptor">Save a life with just ☕️.</span>`,
+         <span class="descriptor">Save a life with just cup a of coffee.</span>`,
         `Ukrainians are still in a nightmarish war.
-         <span class="descriptor">Support lives with just a ☕️.</span>`,
+         <span class="descriptor">Support lives with just a cup of coffee.</span>`,
     ];
 
-    (function() {
-        let stateCheck = setInterval(() => {
-        if (document.readyState === `complete`) {
-            clearInterval(stateCheck);
-            main();
-        }
-        }, 1000);
-    })()
+    main();
     
     function main() {
-        var index = getIndex(Date.now(), texts.length);
+        var index = getIndex(Date.now(), texts.length) || 0;
         if (index && index >= 0 && index < texts.length) {
             document.querySelector('#helpua-text').innerHTML = texts[index];
         }
